@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
- * @Route("/guest", name="guest")
+ * @Route("/guest")
  */
 class GuestController extends AbstractController
 {
@@ -25,7 +25,7 @@ class GuestController extends AbstractController
         ]);
     }
     /**
-     * @Route("/register", name="app_register")
+     * @Route("/register", name="guest_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
@@ -38,21 +38,30 @@ class GuestController extends AbstractController
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $form->get('password')->getData()
                 )
             );
-
+            $user->setRole('ROLE_CUST');
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
 
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('');
+            return $this->redirectToRoute('guest_login');
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('guest/register.html.twig', [
             'registrationForm' => $form->createView(),
+        ]);
+    }
+    /**
+     * @Route("/login", name="guest_login")
+     */
+    public function login()
+    {
+        return $this->render('guest/login.html.twig', [
+            'controller_name' => 'login',
         ]);
     }
 }
