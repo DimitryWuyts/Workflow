@@ -10,20 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-/**
- * @Route("/guest", name="guest")
- */
-class GuestController extends AbstractController
+class RegistrationController extends AbstractController
 {
-    /**
-     * @Route("/", name="guest_index")
-     */
-    public function index()
-    {
-        return $this->render('guest/index.html.twig', [
-            'controller_name' => 'GuestController',
-        ]);
-    }
     /**
      * @Route("/register", name="app_register")
      */
