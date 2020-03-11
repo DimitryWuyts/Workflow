@@ -9,18 +9,19 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TicketFormType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(
+        FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('ticketTitle')
-            ->add('status')
-            ->add('level')
+           /* ->add('status')*/
+         /*   ->add('level')*/
             ->add('date')
             ->add('content')
-            ->add('counter')
-            ->add('prioritylevel')
+         /*   ->add('counter')*/
+        /*    ->add('prioritylevel')
             ->add('users')
-        ;
+        */;
     }
 
     public function configureOptions(OptionsResolver $resolver)
