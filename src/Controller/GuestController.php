@@ -42,7 +42,7 @@ class GuestController extends AbstractController
                 )
             );
             $user->setRole('ROLE_CUST');
-            $user->setRoles('ROLE_CUST');
+            $user->setRoles(['ROLE_CUST']);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
