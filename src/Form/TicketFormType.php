@@ -16,7 +16,7 @@ class TicketFormType extends AbstractType
             ->add('ticketTitle')
            /* ->add('status')*/
          /*   ->add('level')*/
-            ->add('date')
+         /*   ->add('date')*/
             ->add('content')
          /*   ->add('counter')*/
         /*    ->add('prioritylevel')
