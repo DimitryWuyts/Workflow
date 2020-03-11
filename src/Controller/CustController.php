@@ -23,7 +23,10 @@ class CustController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $ticket->setTicketTitle($form->get('ticketTitle')->getData());
-            $ticket->setStatus($form->get('status')->getData());
+            $ticket->setStatus(0);
+            $ticket->setLevel(0);
+            $ticket->setCounter(0);
+            $ticket->setPrioritylevel(0);
             $ticket->setDate($form->get('date')->getData());
             $ticket->setContent($form->get('content')->getData());
 
