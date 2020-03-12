@@ -7,6 +7,8 @@ use App\Form\TicketFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\DateTime;
+
 /**
  * @Route("/cust", name ="cust_View")
  */
@@ -27,7 +29,7 @@ class CustController extends AbstractController
             $ticket->setLevel(0);
             $ticket->setCounter(0);
             $ticket->setPrioritylevel(0);
-            $ticket->setDate($form->get('date')->getData());
+            $ticket->setDate(new \DateTime());
             $ticket->setContent($form->get('content')->getData());
 
 
